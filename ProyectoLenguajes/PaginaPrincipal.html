@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+
+
+<html>
+<body>
+<title>ONLINE TRAVELER'S NOTEBOOK</title>
+<script type="text/javascript" src="cargarInformacionNuevoMapa.js"></script>
+<script type="text/javascript" src="DatosViajes.js"></script>
+<script type="text/javascript" src="crearViaje.js"></script>
+<script type="text/javascript" src="crearViaje2.js"></script>
+
+</script>
+
+
+  <img  src = "http://k37.kn3.net/taringa/4/1/3/9/1/1/3/danielgarcia2010/698.jpg?286" height="105%" width="100%" style="position:absolute; z-index:-1;"/>
+
+  <font face="arial" size="5" color="blue">BIENVENIDO ONLINE TRAVELER'S NOTEBOOK!!!</font>
+
+  <font id="etiqueta1" face="arial" size="5" style="position: relative; top: 58px; left: -558px; " color="blue">Visualizar Mapa:</font>
+  <font id="etiqueta2" face="arial" size="5" style="position: relative; top: 118px; left: 8px; " color="blue">Nuevo Mapa:</font>
+  
+
+  <input type="button" id="visualizarButton" value="Cargar Informacion" style="width: 150px; height: 40px; position: relative;
+  top: 30px; left: 68px;" onclick= inicializarMapaInformativo()  ><br>
+  <input type="button" id="nuevoMapaButton" value="Crear" style="width: 150px; height: 40px; position: relative;
+  top: 70px; left: 400px;" onclick= nuevoMapa() ><br>
+
+  <input type="text"  id="ingresarNombreMapa" size="20" style="position: relative; top: 38px; left: 158px; ">
+
+  <font id="editarVisualizacion" face="arial" size="5" style="position: relative; top: 108px; left: -238px; " color="blue">Editar Visualizacion:</font>
+
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers</title>
+    <style>
+      html, body, #map-canvas {
+        height: 90%;
+        width: 77%;
+        left: 640px;
+        top: -215px;
+      }
+    </style>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=drawing"></script>
+    <script>
+
+        //google.maps.event.addDomListener(window, 'load', inicializarMapaInformativo);
+      
+  </script>
+
+
+  <form>
+    <input type="radio" id="radio" name="radioVisualizacion" style="position: relative; top: 168px; left: 28px; " value="todosViajes"><label for="mc" style=" position: relative; top: 168px; left: 38px;color:blue"> Todos los Viajes.</label><br> 
+    <input type="radio" id="radio" name="radioVisualizacion" style="position: relative; top: 198px; left: 28px;" value="porFecha"><label for="vi" style=" position: relative; top: 198px; left: 38px; color:blue"> Por fecha:</label><br> 
+    <input type="radio" id="radio" name="radioVisualizacion" style="position: relative; top: 358px; left: 28px;" value="porTags"><label for="vi" style=" position: relative; top: 358px; left: 38px; color:blue"> Por Tags:</label><br> 
+    <input type="radio" id="radioTrazar" name="radioVisualizacion" style="position: relative; top: -138px; left: 628px; " value="porTrazar"><label for="mc" style=" position: relative; top: -138px; left: 638px;color:blue"> Trazar Ruta...</label><br>
+    <input type="radio" id="radioDistancias" name="radioVisualizacion" style="position: relative; top: 385px; left: 628px; " value="porTrazar" disabled><label for="mc" style=" position: relative; top: 385px; left: 638px;color:blue"> Mostrar Distancias...</label><br>
+  </form>
+
+  <select type="text"  id="fechaInicialDia" size="1" style="position: relative; top: 200px; left: 138px; ">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+    <option>8</option>
+    <option>9</option>
+    <option>10</option>
+    <option>11</option>
+    <option>12</option>
+    <option>13</option>
+    <option>14</option>
+    <option>15</option>
+    <option>16</option>
+    <option>17</option>
+    <option>18</option>
+    <option>19</option>
+    <option>20</option>
+    <option>21</option>
+    <option>22</option>
+    <option>23</option>
+    <option>24</option>
+    <option>25</option>
+    <option>26</option>
+    <option>27</option>
+    <option>28</option>
+    <option>29</option>
+    <option>30</option>
+  </select>
+
+  <select type="text"  id="fechaFinalDia" size="1" style="position: relative; top: 240px; left: 85px; ">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+    <option>8</option>
+    <option>9</option>
+    <option>10</option>
+    <option>11</option>
+    <option>12</option>
+    <option>13</option>
+    <option>14</option>
+    <option>15</option>
+    <option>16</option>
+    <option>17</option>
+    <option>18</option>
+    <option>19</option>
+    <option>20</option>
+    <option>21</option>
+    <option>22</option>
+    <option>23</option>
+    <option>24</option>
+    <option>25</option>
+    <option>26</option>
+    <option>27</option>
+    <option>28</option>
+    <option>29</option>
+    <option>30</option>
+  </select>
+
+  <select type="text"  id="fechaInicialMes" size="1" style="position: relative; top: 200px; left: 100px; ">
+    <option>Enero</option>
+    <option>Febrero</option>
+    <option>Marzo</option>
+    <option>Abril</option>
+    <option>Mayo</option>
+    <option>Junio</option>
+    <option>Julio</option>
+    <option>Agosto</option>
+    <option>Setiembre</option>
+    <option>Octubre</option>
+    <option>Noviembre</option>
+    <option>Diciembre</option>
+    
+  </select>
+  <select type="text"  id="fechaFinalMes" size="1" style="position: relative; top: 240px; left: -10px; ">
+    <option>Enero</option>
+    <option>Febrero</option>
+    <option>Marzo</option>
+    <option>Abril</option>
+    <option>Mayo</option>
+    <option>Junio</option>
+    <option>Julio</option>
+    <option>Agosto</option>
+    <option>Setiembre</option>
+    <option>Octubre</option>
+    <option>Noviembre</option>
+    <option>Diciembre</option>
+    
+  </select>
+
+  <select type="text"  id="fechaInicialAo" size="1" style="position: relative; top: 201px; left: 0px; ">
+    <option>2004</option>
+    <option>2005</option>
+    <option>2006</option>
+    <option>2007</option>
+    <option>2008</option>
+    <option>2009</option>
+    <option>2010</option>
+    <option>2011</option>
+    <option>2012</option>
+    <option>2013</option>
+    <option>2014</option>
+    <option>2015</option>
+    
+  </select>
+   <select type="text"  id="fechaFinalAo" size="1" style="position: relative; top: 240px; left: -67px; ">
+    <option>2004</option>
+    <option>2005</option>
+    <option>2006</option>
+    <option>2007</option>
+    <option>2008</option>
+    <option>2009</option>
+    <option>2010</option>
+    <option>2011</option>
+    <option>2012</option>
+    <option>2013</option>
+    <option>2014</option>
+    <option>2015</option>
+    
+  </select>
+
+  <font face="verdana" size="4" color="blue" style="position: relative; top: 200px; left: -400px;"> -Inicio:</font>
+  <font face="verdana" size="4" color="blue" style="position: relative; top: 240px; left: -460px;"> -Fin:</font>
+
+  <input type="text"  id="ingresarTags" size="20" style="position: relative; top: 265px; left: 150px; ">
+
+  <input type="button" id="mostrarButton" value="Mostrar" style="width: 150px; height: 40px; position: relative;
+  top: 330px; left: 600px;" disabled onclick= "mostrarDistancias();" ><br>
+
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  
+  </body>
+</html>
